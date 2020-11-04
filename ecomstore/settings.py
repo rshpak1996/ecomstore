@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'ecomstore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ecomstoredb',
+        'USER': 'postgres',
+        'PASSWORD': '1337',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

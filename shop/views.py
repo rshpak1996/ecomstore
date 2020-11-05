@@ -4,8 +4,8 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'shop/home.html')
+    return render(request, 'home.html')
 
 
 def product(request):
-    return render(request, 'shop/product.html')
+    return render(request, 'product.html')

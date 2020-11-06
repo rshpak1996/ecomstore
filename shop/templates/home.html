@@ -26,20 +26,16 @@ Homepage
 
 <div class="container">
     <div class="row">
-        {% for i in 'qwerqwer' %}
+        {% for product in products %}
         <div class="col-9 mx-auto col-md-6 col-lg-3 col-sm-6">
             <div class="card mb-4" style="border-radius: 15px; overflow: hidden">
-                <div class="p-4">
-                    <img class="card-img-top" src="{% static 'images/product-test.png' %}"
-                        style="border-radius: 10px; overflow: hidden">
+                <div class="p-4" style="width: 250px; height: 250px; display: flex; align-items: center;">
+                    <img class="card-img-top" src="{{ product.image.url }}"
+                        style="border-radius: 10px; overflow: hidden; max-height: 202px;">
                 </div>
                 <div class="card-footer d-flex justify-content-between">
-                    <p class="font_weight-bold mb-0">
-                        Description
-                    </p>
-                    <h5 class="text-info font-itallic mb-0">
-                        9.99$
-                    </h5>
+                    <p class="font_weight-bold mb-0 ">{{ product.name|truncatechars:25 }}</p>
+                    <h5 class="text-info font-itallic mb-0">${{ product.price }}</h5>
                 </div>
             </div>
         </div>

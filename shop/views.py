@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product, Cart, CartItem
 from django.core.exceptions import ObjectDoesNotExist
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import User
 from .forms import SignUpForm
 
 # Create your views here.
@@ -95,10 +95,10 @@ def signUpView(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.clean_data.get('username')
+            username = form.cleaned_data.get('username')
             signup_user = User.objects.get(username=username)
-            user_group = Group.objects.get(name='User')
-            user_group.user_set.add(signup_user)
+            # user_group = Group.objects.get(name='User') чомусь не працює
+            # user_group.user_set.add(signup_user)
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
